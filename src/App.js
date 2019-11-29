@@ -1,17 +1,43 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          <h1>This is My First React on My Own</h1>
-        </p>
-        
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+
+      monsters: [
+        {
+        name: 'Frankenstein',
+        id: 'mon1'
+      },
+      {
+        name: 'Dracula',
+        id: 'mon2',
+      },
+      {
+        name: 'Zombie',
+        id: 'mon3'
+      }
+
+    ]
+
+    };
+
+  }
+  render() {
+    return(
+      
+      <div className="App">
+            {
+  this.state.monsters.map(monster => <h1 key={monster.id}> { monster.name } </h1>)
+            }
+          </div>
+
+    );
+  }
 }
+
 
 export default App;
